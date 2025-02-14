@@ -1,0 +1,123 @@
+body {
+    font-family: 'Rubik', sans-serif;
+    text-align: center;
+    background: url('img/background.jpg') no-repeat center center/cover;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border-bottom: 2px solid #ff4655;
+}
+
+.logo {
+    width: 150px;
+    margin: 0 15px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+h1 {
+    color: #ff4655;
+}
+
+.subtext {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+#timer {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+    margin-bottom: 15px;
+}
+
+.currency {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.currency.expired {
+    background: rgba(255, 0, 0, 0.2);
+}
+
+.currency img {
+    width: 50px;
+}
+
+.currency span {
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+button {
+    background: #ff4655;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #d83c4a;
+}
+
+button.disabled {
+    background: gray;
+    cursor: not-allowed;
+}
+
+.comments {
+    margin-top: 20px;
+    text-align: left;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.comment {
+    font-size: 14px;
+    margin: 10px 0;
+    padding: 10px;
+    border-left: 4px solid #ff4655;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+footer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: gray;
+}
+
+footer a {
+    color: #ff4655;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rechargement de Points Valorant | Riot Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <img src="img/riot_logo.png" alt="Riot Games" class="logo">
+        <img src="img/valorant_logo.png" alt="Valorant" class="logo">
+    </header>
+    
+    <div class="container">
+        <h1>Recharge gratuite de Points Valorant</h1>
+        <p class="subtext">Obtenez des Points Valorant (VP) gratuitement grâce aux offres officielles de Riot Games.</p>
+        
+        <p id="timer">Temps restant: <span id="countdown">02:00</span></p>
+
+        <div id="offers">
+            <div class="currency">
+                <img src="img/valorant_vp.png" alt="1000 VP">
+                <span>1 000 VP - Gratuit</span>
+                <button onclick="charge(this)">Recharger</button>
+            </div>
+            
+            <div class="currency">
+                <img src="img/valorant_vp.png" alt="2050 VP">
+                <span>2 050 VP - Gratuit</span>
+                <button onclick="charge(this)">Recharger</button>
+            </div>
+
+            <div class="currency">
+                <img src="img/valorant_vp.png" alt="3650 VP">
+                <span>3 650 VP - Gratuit</span>
+                <button onclick="charge(this)">Recharger</button>
+            </div>
+
+            <div class="currency expired">
+                <img src="img/valorant_vp.png" alt="5350 VP">
+                <span>5 350 VP - Expiré ❌</span>
+                <button class="disabled" disabled>Expiré ❌</button>
+            </div>
+
+            <div class="currency expired">
+                <img src="img/valorant_vp.png" alt="11000 VP">
+                <span>11 000 VP - Expiré ❌</span>
+                <button class="disabled" disabled>Expiré ❌</button>
+            </div>
+        </div>
+
+        <div class="comments">
+            <h2>Commentaires des joueurs</h2>
+            <div class="comment">🔥 Incroyable ! J'ai reçu mes VP en 2j ! - <strong>Kevin92</strong></div>
+            <div class="comment">Merci Riot Games, ça marche vraiment ! ✅ - <strong>JulieGamer</strong></div>
+            <div class="comment">J'ai cru que c'était fake mais j'ai bien reçu mes 5 350 VP ! 🎯 - <strong>DarkShadow</strong></div>
+        </div>
+    </div>
+
+    <footer>
+        <p><a href="https://www.riotgames.com/fr" target="_blank">Site officiel de Riot Games</a> | <a href="https://playvalorant.com/fr-fr/" target="_blank">Site officiel de Valorant</a></p>
+        <p>Tous droits réservés © Riot Games</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
