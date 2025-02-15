@@ -12,47 +12,9 @@ function charge(button) {
     }, 3000);
 }
 
-// Fonction pour activer/désactiver les offres de manière aléatoire
-function updateOffers() {
-    let offers = document.querySelectorAll(".currency");
-    let availableOffers = new Set();
-
-    while (availableOffers.size < 2) {  // Assurer qu'au moins 2 offres sont ouvertes
-        let randomIndex = Math.floor(Math.random() * offers.length);
-        availableOffers.add(randomIndex);
-    }
-
-    offers.forEach((offer, index) => {
-        let statusText = offer.querySelector(".status");
-        let button = offer.querySelector(".charge-btn");
-
-        if (availableOffers.has(index)) {
-            // Ouvrir l'offre
-            offer.classList.remove("expired");
-            statusText.textContent = "Disponible ✅";
-            button.textContent = "Recharger";
-            button.classList.remove("disabled");
-            button.disabled = false;
-            button.onclick = function() { charge(this); };
-        } else {
-            // Fermer l'offre
-            offer.classList.add("expired");
-            statusText.textContent = "Expiré ❌";
-            button.textContent = "Expiré ❌";
-            button.classList.add("disabled");
-            button.disabled = true;
-        }
-    });
-}
-
-// Exécuter au chargement de la page
-updateOffers();
-
-// Mettre à jour toutes les 30 minutes
-setInterval(updateOffers, 30 * 60 * 1000);
-
 // Minuteur
 let countdownElement = document.getElementById("countdown");
+let offersElement = document.getElementById("offers");
 let timeLeft = 120;
 
 function updateTimer() {
@@ -66,8 +28,21 @@ function updateTimer() {
         setTimeout(updateTimer, 1000);
     } else {
         countdownElement.textContent = "Expiré ❌";
-        document.getElementById("offers").style.display = "none";
+        offersElement.innerHTML = "<p style='color: red; font-size: 18px; font-weight: bold;'>Toutes les offres sont expirées ❌</p>";
     }
 }
 
 updateTimer();
+
+// Activer l'offre de 1000 VP
+document.addEventListener("DOMContentLoaded", function() {
+    let offer1000 = document.querySelector(".currency img[alt='1000 VP']").closest(".currency");
+    if (offer1000) {
+        offer1000.classList.remove("expired");
+        offer1000.querySelector("span").textContent = "1 000 VP - Disponible ✅";
+        let button = offer1000.querySelector("button");
+        button.classList.remove("disabled");
+        button.disabled = false;
+        button.textContent = "Recharger";
+    }
+});
