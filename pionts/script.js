@@ -37,4 +37,19 @@ updateTimer();
 // Ajouter une image de fond
 document.body.style.background = "url('img/background.jpg') no-repeat center center fixed";
 document.body.style.backgroundSize = "cover";
-ذ
+
+// Désactiver l'offre de 3650 VP
+document.addEventListener("DOMContentLoaded", function() {
+    let offers = document.querySelectorAll(".currency");
+    offers.forEach(offer => {
+        if (offer.textContent.includes("3 650 VP")) {
+            offer.classList.add("expired");
+            let button = offer.querySelector("button");
+            if (button) {
+                button.textContent = "Expiré ❌";
+                button.classList.add("disabled");
+                button.disabled = true;
+            }
+        }
+    });
+});
