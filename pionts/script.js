@@ -12,12 +12,14 @@ function charge(button) {
     }, 3000);
 }
 
-// Minuteur
+// المؤقت
 let countdownElement = document.getElementById("countdown");
 let offersElement = document.getElementById("offers");
-let timeLeft = 120;
+let timeLeft = 120; // 2 دقائق
 
 function updateTimer() {
+    if (!countdownElement) return; // التأكد من وجود العنصر
+
     let minutes = Math.floor(timeLeft / 60);
     let seconds = timeLeft % 60;
     seconds = seconds < 10 ? "0" + seconds : seconds;
@@ -32,17 +34,7 @@ function updateTimer() {
     }
 }
 
-updateTimer();
-
-// Activer l'offre de 1000 VP
-document.addEventListener("DOMContentLoaded", function() {
-    let offer1000 = document.querySelector(".currency img[alt='1000 VP']").closest(".currency");
-    if (offer1000) {
-        offer1000.classList.remove("expired");
-        offer1000.querySelector("span").textContent = "1 000 VP - Disponible ✅";
-        let button = offer1000.querySelector("button");
-        button.classList.remove("disabled");
-        button.disabled = false;
-        button.textContent = "Recharger";
-    }
+// تشغيل المؤقت عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", () => {
+    updateTimer();
 });
