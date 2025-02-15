@@ -38,11 +38,11 @@ updateTimer();
 document.body.style.background = "url('img/background.jpg') no-repeat center center fixed";
 document.body.style.backgroundSize = "cover";
 
-// Désactiver l'offre de 3650 VP
+// Désactiver l'offre de 3650 VP uniquement
 document.addEventListener("DOMContentLoaded", function() {
     let offers = document.querySelectorAll(".currency");
     offers.forEach(offer => {
-        if (offer.textContent.includes("3 650 VP")) {
+        if (offer.textContent.includes("3 650 VP") || offer.textContent.includes("5 350 VP")) {
             offer.classList.add("expired");
             let button = offer.querySelector("button");
             if (button) {
