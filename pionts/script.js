@@ -13,28 +13,27 @@ function charge(button) {
 }
 
 // المؤقت
-let countdownElement = document.getElementById("countdown");
-let offersElement = document.getElementById("offers");
-let timeLeft = 120; // 2 دقائق
+document.addEventListener("DOMContentLoaded", function () {
+    let countdownElement = document.getElementById("countdown");
+    let offersElement = document.getElementById("offers");
+    let timeLeft = 120; // 2 دقائق
 
-function updateTimer() {
-    if (!countdownElement) return; // التأكد من وجود العنصر
+    function updateTimer() {
+        if (!countdownElement) return; // تأكد من وجود العنصر قبل المتابعة
 
-    let minutes = Math.floor(timeLeft / 60);
-    let seconds = timeLeft % 60;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-    countdownElement.textContent = `${minutes}:${seconds}`;
-    
-    if (timeLeft > 0) {
-        timeLeft--;
-        setTimeout(updateTimer, 1000);
-    } else {
-        countdownElement.textContent = "Expiré ❌";
-        offersElement.innerHTML = "<p style='color: red; font-size: 18px; font-weight: bold;'>Toutes les offres sont expirées ❌</p>";
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        seconds = seconds < 10 ? "0" + seconds : seconds;
+        countdownElement.textContent = `${minutes}:${seconds}`;
+
+        if (timeLeft > 0) {
+            timeLeft--;
+            setTimeout(updateTimer, 1000);
+        } else {
+            countdownElement.textContent = "Expiré ❌";
+            offersElement.innerHTML = "<p style='color: red; font-size: 18px; font-weight: bold;'>Toutes les offres sont expirées ❌</p>";
+        }
     }
-}
 
-// تشغيل المؤقت عند تحميل الصفحة
-document.addEventListener("DOMContentLoaded", () => {
-    updateTimer();
+    updateTimer(); // تشغيل المؤقت عند تحميل الصفحة
 });
